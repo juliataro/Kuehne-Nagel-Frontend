@@ -1,36 +1,36 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Pages/HomePage'
+import UpdateShipment from './Components/ShipmentsTable/UpdateShipment'
+import Header from './Components/Header/Header'
+import './Assets/index.css'
+import { ToastContainer } from 'react-toastify'
+import ShipmentsPage from './Pages/ShipmentsPage'
+import AddShipmentPage from './Pages/AddShipmentPage'
 
-import Home from "./Component/Home";
-import ShipmentListing from "./Component/ShipmentTable/ShipmentListing";
-import UpdateShipment from "./Component/ShipmentTable/UpdateShipment";
-import Header from "./Component/Header";
-import './Assets/index.css';
-
-
-
-
-
-function App() {
+function App () {
   return (
-
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
-      <div className='header'>
-        <Header />
-        
-      </div>
+        <div className='header'>
+          <Header />{' '}
+        </div>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/shipment" element={<ShipmentListing />}></Route>
-          <Route path="/shipment/add" element={<UpdateShipment />}></Route>
-          <Route path="/shipment/edit/:orderNo" element={<UpdateShipment />}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/shipments' element={<ShipmentsPage />}></Route>
+          <Route
+            path='/shipments/add-shipment'
+            element={<AddShipmentPage />}
+          ></Route>
+          <Route
+            path='/shipments/edit/:orderNo'
+            element={<UpdateShipment />}
+          ></Route>
         </Routes>
       </BrowserRouter>
-    
+      <ToastContainer></ToastContainer>
     </div>
-
-  );
+  )
 }
 
-export default App;
+export default App
